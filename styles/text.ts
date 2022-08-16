@@ -3,18 +3,25 @@ import * as css from "https://esm.sh/css@3.0.0";
 export const textStyles = css.parse(`
 @import url('https://fonts.googleapis.com/css?family=Titan+One');
 
-
 .container{
   width:350px;
   height:300px;
-  bottom:-10%;
-  left:50%;
+  top:20%;
+  left:20%;
   transform:translate(-50%,-50%);
   display:block;
   position:absolute;
   text-align:center;
   }
 
+
+@media screen and (max-width: 600px) {
+  .container {
+  top: 16%;
+    left: 7%;
+    transform: scale(0.5);
+  }
+}
 
 
 .container:before {
@@ -52,7 +59,7 @@ export const textStyles = css.parse(`
         
         
 
-h1{
+.container h1{
   background: #fff;
   border-radius: 25px;
   border:none;
@@ -69,9 +76,9 @@ h1{
   justify-content:center
   }
 
-h1 span{width:100%;position:relative}
+.container h1 span{width:100%;position:relative}
 
-h1 span:before{
+.container h1 span:before{
   background:linear-gradient(45deg,#fc5c7d,#6a82fb,#fc5c7d);
   width:100%;
   height:100%;

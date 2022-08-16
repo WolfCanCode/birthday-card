@@ -49,40 +49,41 @@ export default function Invitations({ id }: { id?: string }) {
 
   return (
     <div
-      class={tw`p-5 lg:p-10 w-screen lg:max-w-20 bg-green-600 bottom-0 absolute text-white `}
+      class={tw`p-5 lg:p-10 w-screen max-h-[100px] ${!isLoading ? 'max-h-[600px]':''} lg:max-w-20 bg-green-600 bottom-0 absolute text-white rounded-t-2xl transition-all duration-500 ease-in-out`}
     >
       {!isLoading
         ? (
           <div className={tw`flex flex-col`}>
-            <h1 className={tw`text-2xl lg:text-3xl mb-4`}>
+            <img src="/images/cake.png" class={tw`w-24 mb-4 mx-auto`}/>
+            <h1 className={tw`text-xl lg:text-2xl mb-4`}>
               Thân gửi <strong>{data?.name}</strong> 🥰
             </h1>
-            <h2 className={tw`text-lg lg:text-xl`}>
+            <h2 className={tw`text-md lg:text-lg`}>
               Vào ngày <strong>02/09/2021</strong>{" "}
-              mình đã bắt đầu làm lại cuộc đời,
+              mình đã bắt đầu cuộc đời,
             </h2>
-            <h2 className={tw`text-lg lg:text-xl mb-2`}>
-              với danh phận mới là {" "}
+            <h2 className={tw`text-md lg:text-lg mb-2`}>
+              với danh phận là {" "}
               <strong>Lê Ngọc Hải An</strong> aka <strong>Ngọt</strong> 😎
             </h2>
-            <h2 className={tw`text-lg lg:text-xl`}>
+            <h2 className={tw`text-md lg:text-lg`}>
               Đến giờ cũng đã được 1 năm, thời gian trôi đủ nhanh để ba mẹ mình
               kiếm "xiền" 💰💰
             </h2>
-            <h2 className={tw`text-lg lg:text-xl mb-4`}>
+            <h2 className={tw`text-md lg:text-lg mb-4`}>
               và tổ chức một bữa thôi nôi mời {" "}
               <strong>
                 {data?.name?.split(" ")[data?.name?.split(" ").length - 1]}
               </strong>{" "}
               tham gia 🎉🎉
             </h2>
-            <h2 className={tw`text-lg lg:text-xl mb-4`}>
+            <h2 className={tw`text-md lg:text-lg mb-4`}>
               Thời gian: <strong>03/09/2022 17:00</strong>
             </h2>
             {data?.isAttended
               ? (
                 <div><h2>Số người bạn dẫn theo: <input
-                  className={tw`h-10 mb-2 px-4 bg-green-900 placeholder:text-white text-white w-16 rounded-xl`}
+                  className={tw`h-10 mb-2 px-4 bg-green-900 placeholder:text-white text-white w-16 rounded-xl text-center`}
                   placeholder="1"
                   defaultValue={data?.deps}
                   type="number"
@@ -107,7 +108,7 @@ export default function Invitations({ id }: { id?: string }) {
             </button>
           </div>
         )
-        : "Loading..."}
+        : "Đang tìm thư mời..."}
     </div>
   );
 }
