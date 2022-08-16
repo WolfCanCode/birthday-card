@@ -70,9 +70,9 @@ export default function Invitations({ id }: { id?: string }) {
               kiếm "xiền" 💰💰
             </h2>
             <h2 className={tw`text-md lg:text-lg mb-4`}>
-              và tổ chức một bữa thôi nôi mời {" "}
+              và tổ chức một bữa thôi nôi mời gia đình 🏠 {" "}
               <strong>
-                {data?.name?.split(" ")[data?.name?.split(" ").length - 1]}
+                {data?.name}
               </strong>{" "}
               tham gia 🎉🎉
             </h2>
