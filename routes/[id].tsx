@@ -9,7 +9,7 @@ import { tw } from "@twind";
 export default function Invitation(props: PageProps) {
   return (
     <div
-      class={tw`max-w-screen h-screen bg-contain lg:bg-cover bg-no-repeat bg-top lg:bg-bottom max-w-[length:600px]`}
+      class={tw`max-w-screen h-screen bg-contain lg:bg-cover bg-no-repeat bg-top lg:bg-bottom`}
       style={{ backgroundImage: `url(${asset("/images/background.jpg")})`, backgroundColor:'#C8F7ED' }}
     >
       <img src="/images/light-string.png" class={tw`top-0 w-screen`}/>
