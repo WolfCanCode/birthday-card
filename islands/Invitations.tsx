@@ -62,7 +62,7 @@ export default function Invitations({ id }: { id?: string }) {
               mình đã bắt đầu làm lại cuộc đời,
             </h2>
             <h2 className={tw`text-lg lg:text-xl mb-2`}>
-              với danh phận mới là
+              với danh phận mới là {" "}
               <strong>Lê Ngọc Hải An</strong> aka <strong>Ngọt</strong> 😎
             </h2>
             <h2 className={tw`text-lg lg:text-xl`}>
