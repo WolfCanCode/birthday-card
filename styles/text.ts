@@ -42,6 +42,7 @@ export const textStyles = css.parse(`
     right: 0;
     bottom: 0;
     left: 0;
+        background: linear-gradient(-45deg, #45caff 0%, #ff1b6b 100% );
     transform: translate3d(0px, 0px, 0) scale(1);
     filter: blur(20px);
     opacity: var(0.7);
