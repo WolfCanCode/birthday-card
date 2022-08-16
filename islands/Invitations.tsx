@@ -81,7 +81,7 @@ export default function Invitations({ id }: { id?: string }) {
             </h2>
             {data?.isAttended
               ? (
-                <div><h2>Số người bạn dẫn theo: <input
+                <div><h2>Tổng số người đi: <input
                   className={tw`h-10 mb-2 px-4 bg-green-900 placeholder:text-white text-white w-16 rounded-xl text-center`}
                   placeholder="1"
                   defaultValue={data?.deps}
@@ -103,7 +103,7 @@ export default function Invitations({ id }: { id?: string }) {
             >
               {data && data.isAttended !== null &&
                   (data.isAttended ? "Sẽ tham gia đó ✅" : "Mình kẹt rồi 😭") ||
-                "Ấn vào đây để tham gia... 🤔"}
+                "Ấn vào đây để tham gia hoặc từ chối"}
             </button>
           </div>
         )
