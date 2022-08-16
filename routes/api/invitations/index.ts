@@ -3,7 +3,7 @@ import { sbInivations } from "../../../utils/api.ts";
 
 export interface Invitation {
   deps: number;
-  fullname: string;
+  name: string;
   id: string;
   isAttended: boolean | null;
 }
@@ -20,9 +20,9 @@ export const handler: Handlers = {
   },
 
   async PUT(req) {
-    const data = await req.json();
+    const body = await req.json();
     const invitation =
-    await sbInivations.edit('id',data.id,data) || null;
+    await sbInivations.edit('id',body.id,body.data) || null;
     return new Response(JSON.stringify(invitation), {
       headers: { "Content-Type": "application/json" },
     });
