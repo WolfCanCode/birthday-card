@@ -10,7 +10,6 @@ export default function App({ Component }: AppProps) {
     <>
       <Head>
         <title>Ngọt Birthday</title>
-        <desc>Thiệp mời sinh nhật của Ngọt Ngọt gửi đến bạn</desc>
       </Head>
       <Component />
     </>
