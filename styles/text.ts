@@ -21,6 +21,16 @@ export const textStyles = css.parse(`
     left: 7%;
     transform: scale(0.5);
   }
+
+  .container .blobs_1,
+  .container .blobs_2,
+  .container .blobs_3,
+  .container .blobs_4,
+  .container .blobs_5,
+  .container .blobs_6,
+  .container .blobs_7 {
+    display:none !important;
+  }
 }
 
 
@@ -32,7 +42,6 @@ export const textStyles = css.parse(`
     right: 0;
     bottom: 0;
     left: 0;
-    background: linear-gradient(-45deg, #45caff 0%, #ff1b6b 100% );
     transform: translate3d(0px, 0px, 0) scale(1);
     filter: blur(20px);
     opacity: var(0.7);
@@ -60,6 +69,7 @@ export const textStyles = css.parse(`
         
 
 .container h1{
+  position:absolute;
   background: #fff;
   border-radius: 25px;
   border:none;
@@ -74,6 +84,7 @@ export const textStyles = css.parse(`
   flex-flow:row wrap;
   align-content:center;
   justify-content:center
+  z-index:99;
   }
 
 .container h1 span{width:100%;position:relative}
@@ -87,7 +98,7 @@ export const textStyles = css.parse(`
   content:'';
   mix-blend-mode:screen;
   }
-.blobs_1{
+.container .blobs_1{
   background:#ff1493;
   width:60px;
   height:60px;
@@ -95,10 +106,12 @@ export const textStyles = css.parse(`
   left:210px;
   display:block;
   position:absolute;
-  mix-blend-mode:color;animation:blobs 15s ease-in-out infinite alternate;
+  mix-blend-mode:color;
+  animation:blobs 18s ease-in-out infinite alternate;
+  z-index:1;
   }
 
-.blobs_2{
+.container .blobs_2{
   background:#ff4500;
   width:80px;
   height:80px;
@@ -106,10 +119,12 @@ export const textStyles = css.parse(`
   left:230px
   display:block;
   position:absolute;
-  mix-blend-mode:color;animation:blobs 15s ease-in-out infinite alternate;
+  mix-blend-mode:color;
+  animation:blobs 14s ease-in-out infinite alternate;
+  z-index:1;
   }
 
-.blobs_3{
+.container .blobs_3{
   background:#00ff00;
   width:60px;
   height:60px;
@@ -117,21 +132,25 @@ export const textStyles = css.parse(`
   left:20px;
   display:block;
   position:absolute;
-  mix-blend-mode:color;animation:blobs 15s ease-in-out infinite alternate;
+  mix-blend-mode:color;
+  animation:blobs 16s ease-in-out infinite alternate;
+  z-index:1;
   }
 
-.blobs_4{
+.container .blobs_4{
   background:#ff0000;
-  width:100px;
+  width:100px; 
   height:100px;
   top:115px;
   left:100px;
   display:block;
   position:absolute;
-  mix-blend-mode:color;animation:blobs 15s ease-in-out infinite alternate;
+  mix-blend-mode:color;
+  animation:blobs 17s ease-in-out infinite alternate;
+  z-index:1;
   }
 
-.blobs_5{
+.container .blobs_5{
   background:#ffff00;
   width:50px;
   height:50px;
@@ -139,10 +158,12 @@ export const textStyles = css.parse(`
   left:70px;
   display:block;
   position:absolute;
-  mix-blend-mode:color;animation:blobs 15s ease-in-out infinite alternate;
+  mix-blend-mode:color;
+  animation:blobs 12s ease-in-out infinite alternate;
+  z-index:1;
   }
 
-.blobs_6{
+.container .blobs_6{
   background:#00ffff;
   width:60px;
   height:60px;
@@ -150,10 +171,12 @@ export const textStyles = css.parse(`
   left:55px;
   display:block;
   position:absolute;
-  mix-blend-mode:color;animation:blobs 15s ease-in-out infinite alternate;
+  mix-blend-mode:color;
+  animation:blobs 15s ease-in-out infinite alternate;
+  z-index:1;
   }
 
-.blobs_7{
+.container .blobs_7{
   background:#ff8c00;
   width:50px;
   height:50px;
@@ -161,7 +184,8 @@ export const textStyles = css.parse(`
   left:180px;
   display:block;
   position:absolute;
-  mix-blend-mode:color;animation:blobs 15s ease-in-out infinite alternate;
+  mix-blend-mode:color;animation:blobs 22s ease-in-out infinite alternate;
+  z-index:1;
   }
 
 @keyframes blobs{

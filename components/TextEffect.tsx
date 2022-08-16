@@ -9,11 +9,13 @@ export function TextEffect() {
 
   return (
     <div class="container">
+    
       <h1>
         <span>
-          Sweet<br /> 1st
+          NGOT<br /> 1st
         </span>
       </h1>
+        
       <div class="blobs_1"></div>
       <div class="blobs_2"></div>
       <div class="blobs_3"></div>
