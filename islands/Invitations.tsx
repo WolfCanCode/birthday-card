@@ -49,7 +49,7 @@ export default function Invitations({ id }: { id?: string }) {
 
   return (
     <div
-      class={tw`p-5 lg:p-10 w-screen  max-w-[300px] hover:max-h-[600px] max-h-[100px]  ${!isLoading ? 'max-h-[300px]':''} lg:max-w-20 bg-green-600 bottom-0 absolute text-white rounded-t-2xl transition-all duration-500 ease-in-out`}
+      class={tw`p-5 lg:p-10 w-screen  max-w-[600px] hover:max-h-[600px] max-h-[100px]  ${!isLoading ? 'max-h-[300px]':''} lg:max-w-20 bg-green-600 bottom-0 absolute text-white rounded-t-2xl transition-all duration-500 ease-in-out`}
     >
       {!isLoading
         ? (
