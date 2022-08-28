@@ -8,6 +8,7 @@ import { Invitation } from "../routes/api/invitations/index.ts";
 export default function InvitationList({ id }: { id?: string }) {
   const [data, setData] = useState<Invitation[]>([]);
   const [isLoading, setLoading] = useState<boolean>(true);
+  const [active, setActive] = useState<string[]>([]);
 
   useEffect(() => {
     firstLoad();
@@ -22,11 +23,17 @@ export default function InvitationList({ id }: { id?: string }) {
       });
   };
 
+  const copyLink = (id: string) => {
+    if (data.find((item) => item.id !== id)) {
+      setActive([...active, id]);
+    }
+  };
+
   return (
     <div
       class={tw`p-5 lg:p-10 w-screen  max-h-[100px]  ${
-        !isLoading ? "max-h-[600px]" : ""
-      } lg:max-w-20 bg-gray-600 bottom-0 absolute text-white rounded-t-2xl transition-all duration-500 ease-in-out overflow-y-auto`}
+        !isLoading ? "max-h-screen" : ""
+      } lg:max-w-20 bg-gray-600 bottom-0 absolute text-white transition-all duration-500 ease-in-out overflow-y-auto`}
     >
       {!isLoading
         ? (
@@ -48,7 +55,22 @@ export default function InvitationList({ id }: { id?: string }) {
                       <td class={tw`p-4`}>{item.deps}</td>
                       <td class={tw`p-4`}>{item.isAttended ? "✅" : "❌"}</td>
                       <td class={tw`p-4`}>
-                        https://sweetbirthday.deno.dev/{item.id}
+                        <button
+                          class={tw`${
+                            active.includes(item.id) ? "text-green-500" : ""
+                          }`}
+                          onClick={() => {
+                            navigator.clipboard.writeText(
+                              `https://sweetbirthday.deno.dev/${item.id}`,
+                            );
+                            copyLink(item.id);
+                          }}
+                        >
+                          Copy Link {active.includes(item.id) ? "✅" : "❌"}
+                        </button>
+                      </td>
+                      <td>
+                        https://sweetbirthday.deno.dev/${item.id}
                       </td>
                     </tr>
                   );
