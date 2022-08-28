@@ -12,14 +12,15 @@ export const textStyles = css.parse(`
   display:block;
   position:absolute;
   text-align:center;
+  z-index:11;
   }
 
 
 @media screen and (max-width: 600px) {
   .container {
-  top: 16%;
-    left: 7%;
-    transform: scale(0.5);
+  top: 50%;
+    left: 50%;
+    transform: translate(-50%,-85%) scale(0.4);
   }
 
   .container .blobs_1,
