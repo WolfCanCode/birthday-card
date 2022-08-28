@@ -99,7 +99,7 @@ export default function Invitations({ id }: { id?: string }) {
                 </strong>
               </h2>
               <h2 className={tw`text-md lg:text-lg mb-2`}>
-                Thời gian: <strong>03/09/2022 17:00</strong>
+                Thời gian: <strong>Chủ nhật 04/09/2022 18:00</strong>
               </h2>
               <a
                 className={tw`text-red-500 font-medium mb-4`}

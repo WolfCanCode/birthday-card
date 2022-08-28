@@ -54,7 +54,7 @@ export default function InvitationList({ id }: { id?: string }) {
                       <td class={tw`p-4`}>{item.name}</td>
                       <td class={tw`p-4`}>{item.deps}</td>
                       <td class={tw`p-4`}>{item.isAttended ? "✅" : "❌"}</td>
-                      <td class={tw`p-4`}>
+                      <td class={tw`p-4 nowrap`}>
                         <button
                           class={tw`${
                             active.includes(item.id) ? "text-green-500" : ""
@@ -70,7 +70,7 @@ export default function InvitationList({ id }: { id?: string }) {
                         </button>
                       </td>
                       <td>
-                        https://sweetbirthday.deno.dev/${item.id}
+                        #{item.id}
                       </td>
                     </tr>
                   );
