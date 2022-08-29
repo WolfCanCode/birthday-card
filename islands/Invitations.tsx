@@ -70,12 +70,27 @@ export default function Invitations({ id }: { id?: string }) {
         } lg:max-w-20 bottom-0 fixed transition-all duration-500 ease-in-out `}
       >
         <div
-          className={tw`flex flex-col items-center justify-center  mb-4`}
+          className={tw`flex flex-col items-center justify-center  mb-4 relative`}
         >
           <div
             style={{ backgroundImage: "url('/images/avatar.png')" }}
             className={tw` h-36 w-36 rounded-full  bg-no-repeat bg-cover`}
           />
+          {data?.isAttended !== null
+            ? (
+              <div
+                className={tw`absolute zIndex-99 bottom-[-14px] w-32 text-sm text-center p-2 font-bold rounded-md b ${(data
+                    ?.isAttended
+                  ? "bg-green-700"
+                  : "bg-red-700")} text-white`}
+              >
+                {data
+                    ?.isAttended
+                  ? "Tham gia"
+                  : "Không tham gia"}
+              </div>
+            )
+            : ""}
         </div>
         <div
           class={tw`p-5 lg:p-10  ${
@@ -89,21 +104,6 @@ export default function Invitations({ id }: { id?: string }) {
           {!isLoading
             ? (
               <div className={tw`flex flex-col relative`}>
-                {data?.isAttended !== null
-                  ? (
-                    <div
-                      className={tw`absolute zIndex-99 right-0 w-32 text-sm text-center p-2 font-bold rounded-md b ${(data
-                          ?.isAttended
-                        ? "bg-green-700"
-                        : "bg-red-700")} text-white`}
-                    >
-                      {data
-                          ?.isAttended
-                        ? "Tham gia"
-                        : "Không tham gia"}
-                    </div>
-                  )
-                  : ""}
                 <h1 className={tw`text-md lg:text-2xl mb-4`}>
                   Thân gửi <strong className={tw`text-xl`}>{data?.name}</strong>
                   {" "}
