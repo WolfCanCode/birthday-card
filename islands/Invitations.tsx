@@ -104,7 +104,7 @@ export default function Invitations({ id }: { id?: string }) {
           {!isLoading
             ? (
               <div className={tw`flex flex-col relative`}>
-                <h1 className={tw`text-sm lg:text-xl mb-2 lg:mb-4`}>
+                <h1 className={tw`text-md lg:text-xl mb-2 lg:mb-4`}>
                   Thân gửi{" "}
                   <strong className={tw`text-lg lg:text-xl`}>
                     {data?.name}
@@ -133,13 +133,13 @@ export default function Invitations({ id }: { id?: string }) {
                     🗺 SunShine Antique 🗺
                   </a>
                 </div>
-                <h2 className={tw`text-sm lg:text-lg`}>
+                <h2 className={tw`text-md lg:text-lg`}>
                   Địa chỉ:{" "}
                   <strong>
                     549 Đ. Trần Hưng Đạo, Cầu Kho, Quận 1, Thành phố Hồ Chí Minh
                   </strong>
                 </h2>
-                <h2 className={tw`text-sm lg:text-lg mb-2`}>
+                <h2 className={tw`text-md lg:text-lg mb-2`}>
                   Thời gian:{" "}
                   <strong className={tw`text-blue-600`}>
                     18:00, Chủ nhật 04/09/2022
