@@ -32,17 +32,18 @@ export default function Invitations({ id }: { id?: string }) {
   }, [data, isLoading]);
 
   const dataHandler = (isAttended?: boolean, deps?: number) => {
-    if (isAttended) {
-      alert("Bạn nhớ chọn số lượng người tham gia nha");
-    }
     if (data) {
+      const newAttended = isAttended ? !data.isAttended : data.isAttended;
+      if (newAttended) {
+        alert("Bạn nhớ nhập số lượng người tham gia nha");
+      }
       fetch(`/api/invitations`, {
         method: "PUT",
         body: JSON.stringify({
           id: data.id,
           data: {
             ...data,
-            isAttended: isAttended ? !data.isAttended : data.isAttended,
+            isAttended: newAttended,
             deps: deps,
           },
         }),
