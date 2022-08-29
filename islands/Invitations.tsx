@@ -32,6 +32,9 @@ export default function Invitations({ id }: { id?: string }) {
   }, [data, isLoading]);
 
   const dataHandler = (isAttended?: boolean, deps?: number) => {
+    if (isAttended) {
+      alert("Bạn nhớ chọn số lượng người tham gia nha");
+    }
     if (data) {
       fetch(`/api/invitations`, {
         method: "PUT",
@@ -99,7 +102,7 @@ export default function Invitations({ id }: { id?: string }) {
                 </strong>
               </h2>
               <h2 className={tw`text-md lg:text-lg mb-2`}>
-                Thời gian: <strong>Chủ nhật 04/09/2022 18:00</strong>
+                Thời gian: <strong>18:00, Chủ nhật 04/09/2022</strong>
               </h2>
               <a
                 className={tw`text-red-500 font-medium mb-4`}
