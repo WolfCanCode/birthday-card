@@ -34,7 +34,7 @@ export default function Invitations({ id }: { id?: string }) {
   const dataHandler = (isAttended?: boolean, deps?: number) => {
     if (data) {
       const newAttended = isAttended ? !data.isAttended : data.isAttended;
-      if (newAttended) {
+      if (newAttended && !deps) {
         alert("Bạn nhớ nhập số lượng người tham gia nha");
       }
       fetch(`/api/invitations`, {
@@ -66,7 +66,7 @@ export default function Invitations({ id }: { id?: string }) {
             : data?.isAttended
             ? "bg-green-300"
             : "bg-red-300"
-        } bg-opacity-80 bottom-0 fixed text-black rounded-t-2xl transition-all duration-500 ease-in-out`}
+        } bg-opacity-90 bottom-0 fixed text-black rounded-t-2xl transition-all duration-500 ease-in-out shadow-lg`}
       >
         {!isLoading
           ? (
@@ -91,7 +91,7 @@ export default function Invitations({ id }: { id?: string }) {
               <div className={tw`mb-2 text-center`}>
                 <a
                   href="https://g.co/kgs/u6D9SP"
-                  className={tw`text-blue-600 font-bold text-lg text-center`}
+                  className={tw`text-blue-600 font-bold text-xl text-center`}
                 >
                   🗺 SunShine Antique 🗺
                 </a>
@@ -103,10 +103,13 @@ export default function Invitations({ id }: { id?: string }) {
                 </strong>
               </h2>
               <h2 className={tw`text-md lg:text-lg mb-2`}>
-                Thời gian: <strong>18:00, Chủ nhật 04/09/2022</strong>
+                Thời gian:{" "}
+                <strong className={tw`text-blue-600`}>
+                  18:00, Chủ nhật 04/09/2022
+                </strong>
               </h2>
               <a
-                className={tw`text-red-500 font-medium mb-4`}
+                className={tw`text-red-800 font-medium mb-4`}
                 href={`http://www.google.com/calendar/event?action=TEMPLATE&text=Sinh nhật của Ngọt nè ${data?.name} ơi&details=Mời ${data?.name} tới tham dự tiệc thôi nôi của Ngọt <3&location=SunShine 549 Đ. Trần Hưng Đạo, Cầu Kho, Quận 1, Thành phố Hồ Chí MinhAntique&dates=20220904T110000000Z/20220904T140000000Z`}
               >
                 📆 Thêm vào lịch
@@ -118,10 +121,10 @@ export default function Invitations({ id }: { id?: string }) {
                 </strong>{" "}
                 tham gia tiệc nha 🎉🎉
               </h2>
-              {data?.isAttended
+              {data?.isAttended || data?.isAttended === null
                 ? (
                   <div>
-                    <h2>
+                    <h2 className={tw`text-lg text-blue-700 font-bold`}>
                       Tổng số người tham gia:{" "}
                       <input
                         className={tw`h-10 mb-2 px-4 bg-green-900 placeholder:text-white text-white w-16 rounded-xl text-center`}
@@ -138,30 +141,38 @@ export default function Invitations({ id }: { id?: string }) {
                 )
                 : ""}
               <div
-                className={tw`text-white flex flex-row gap-4 justify-center w-full`}
+                className={tw`text-white flex flex-row gap-4 justify-center w-full mt-2`}
               >
-                <div className={tw`w-full`}>
+                <div
+                  className={tw`${
+                    !data?.isAttended ? "flex-2" : "flex-1"
+                  } w-full transition-all ease-in-out transition-duration-200`}
+                >
                   <button
                     className={tw`w-full px-4 py-2 rounded-lg text-lg ${
                       !data?.isAttended
                         ? "bg-green-700"
                         : "bg-gray-700 opacity-50"
-                    }`}
+                    } transition-all ease-in-out transition-duration-200`}
                     onClick={() => !data?.isAttended ? dataHandler(true) : {}}
                   >
-                    Tham gia ✅
+                    {!data?.isAttended ? "Tham gia ✅" : "✅"}
                   </button>
                 </div>
-                <div className={tw`w-full`}>
+                <div
+                  className={tw`w-full ${
+                    data?.isAttended ? "flex-2" : "flex-1"
+                  } transition-all ease-in-out transition-duration-200`}
+                >
                   <button
                     className={tw`w-full px-4 py-2 rounded-lg text-lg ${(data
                         ?.isAttended || data?.isAttended === null
                       ? "bg-red-700"
-                      : "bg-gray-700 opacity-50")}`}
+                      : "bg-gray-700 opacity-50")} transition-all ease-in-out transition-duration-200`}
                     onClick={() =>
-                      dataHandler(true)}
+                      data?.isAttended ? dataHandler(true) : {}}
                   >
-                    Mình kẹt rồi 😭
+                    {data?.isAttended ? "Mình kẹt rồi 😭" : "❌"}
                   </button>
                 </div>
               </div>
