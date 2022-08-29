@@ -74,12 +74,12 @@ export default function Invitations({ id }: { id?: string }) {
         >
           <div
             style={{ backgroundImage: "url('/images/avatar.png')" }}
-            className={tw` h-36 w-36 rounded-full  bg-no-repeat bg-cover`}
+            className={tw`h-24 w-24 lg:h-36 lg:w-36 rounded-full  bg-no-repeat bg-cover`}
           />
-          {data?.isAttended !== null
+          {data?.isAttended !== null && !isLoading
             ? (
               <div
-                className={tw`absolute zIndex-99 bottom-[-14px] w-32 text-sm text-center p-2 font-bold rounded-md b ${(data
+                className={tw`absolute zIndex-99 bottom-[-14px] w-24 lg:w-32 text-xs lg:text-sm text-center p-2 font-bold rounded-md b ${(data
                     ?.isAttended
                   ? "bg-green-700"
                   : "bg-red-700")} text-white`}
@@ -104,15 +104,17 @@ export default function Invitations({ id }: { id?: string }) {
           {!isLoading
             ? (
               <div className={tw`flex flex-col relative`}>
-                <h1 className={tw`text-md lg:text-2xl mb-4`}>
-                  Thân gửi <strong className={tw`text-xl`}>{data?.name}</strong>
-                  {" "}
+                <h1 className={tw`text-sm lg:text-xl mb-2 lg:mb-4`}>
+                  Thân gửi{" "}
+                  <strong className={tw`text-lg lg:text-xl`}>
+                    {data?.name}
+                  </strong>{" "}
                   🥰
                 </h1>
                 <h2 className={tw`text-md lg:text-lg`}>
                   Vào ngày <strong>02/09/2021</strong> mình đã bắt đầu cuộc đời,
                 </h2>
-                <h2 className={tw`text-md lg:text-lg mb-4`}>
+                <h2 className={tw`text-md lg:text-lg mb-2 lg:mb-4`}>
                   với danh phận là{"  "}<strong>Lê Ngọc Hải An</strong> aka{" "}
                   <strong>Ngọt</strong> 😎
                 </h2>
@@ -126,12 +128,12 @@ export default function Invitations({ id }: { id?: string }) {
                 <div className={tw`mb-2 text-center`}>
                   <a
                     href="https://g.co/kgs/u6D9SP"
-                    className={tw`text-blue-600 font-bold text-xl text-center`}
+                    className={tw`text-blue-600 font-bold text-lg lg:text-xl text-center`}
                   >
                     🗺 SunShine Antique 🗺
                   </a>
                 </div>
-                <h2 className={tw`text-md lg:text-lg`}>
+                <h2 className={tw`text-sm lg:text-lg`}>
                   Địa chỉ:{" "}
                   <strong>
                     549 Đ. Trần Hưng Đạo, Cầu Kho, Quận 1, Thành phố Hồ Chí Minh
@@ -159,7 +161,9 @@ export default function Invitations({ id }: { id?: string }) {
                 {data?.isAttended || data?.isAttended === null
                   ? (
                     <div>
-                      <h2 className={tw`text-lg text-blue-700 font-bold`}>
+                      <h2
+                        className={tw`text-md lg:text-lg text-blue-700 font-bold`}
+                      >
                         Tổng số người tham gia:{" "}
                         <input
                           className={tw`h-10 mb-2 px-4 bg-green-900 placeholder:text-white text-white w-16 rounded-xl text-center`}
