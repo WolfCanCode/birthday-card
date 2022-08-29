@@ -139,7 +139,7 @@ export default function Invitations({ id }: { id?: string }) {
                     549 Đ. Trần Hưng Đạo, Cầu Kho, Quận 1, Thành phố Hồ Chí Minh
                   </strong>
                 </h2>
-                <h2 className={tw`text-md lg:text-lg mb-2`}>
+                <h2 className={tw`text-sm lg:text-lg mb-2`}>
                   Thời gian:{" "}
                   <strong className={tw`text-blue-600`}>
                     18:00, Chủ nhật 04/09/2022
