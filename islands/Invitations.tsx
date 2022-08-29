@@ -31,9 +31,15 @@ export default function Invitations({ id }: { id?: string }) {
     }
   }, [data, isLoading]);
 
-  const dataHandler = (isAttended?: boolean, deps?: number) => {
+  const dataHandler = (
+    isAttended?: boolean,
+    deps?: number,
+    forceCancel?: boolean,
+  ) => {
     if (data) {
-      const newAttended = isAttended ? !data.isAttended : data.isAttended;
+      const newAttended = !forceCancel
+        ? isAttended ? !data.isAttended : data.isAttended
+        : false;
       if (newAttended && !deps) {
         alert("Bạn nhớ nhập số lượng người tham gia nha");
       }
@@ -70,7 +76,22 @@ export default function Invitations({ id }: { id?: string }) {
       >
         {!isLoading
           ? (
-            <div className={tw`flex flex-col`}>
+            <div className={tw`flex flex-col relative`}>
+              {data?.isAttended !== null
+                ? (
+                  <div
+                    className={tw`absolute zIndex-99 right-0 w-32 text-sm text-center p-2 font-bold rounded-md b ${(data
+                        ?.isAttended
+                      ? "bg-green-700"
+                      : "bg-red-700")} text-white`}
+                  >
+                    {data
+                        ?.isAttended
+                      ? "Tham gia"
+                      : "Không tham gia"}
+                  </div>
+                )
+                : ""}
               <h1 className={tw`text-md lg:text-2xl mb-4`}>
                 Thân gửi <strong className={tw`text-xl`}>{data?.name}</strong> 🥰
               </h1>
@@ -145,7 +166,9 @@ export default function Invitations({ id }: { id?: string }) {
               >
                 <div
                   className={tw`${
-                    !data?.isAttended ? "flex-2" : "flex-1"
+                    !data?.isAttended || data?.isAttended === null
+                      ? "flex-2"
+                      : "flex-1"
                   } w-full transition-all ease-in-out transition-duration-200`}
                 >
                   <button
@@ -156,12 +179,16 @@ export default function Invitations({ id }: { id?: string }) {
                     } transition-all ease-in-out transition-duration-200`}
                     onClick={() => !data?.isAttended ? dataHandler(true) : {}}
                   >
-                    {!data?.isAttended ? "Tham gia ✅" : "✅"}
+                    {!data?.isAttended || data?.isAttended === null
+                      ? "Tham gia ✅"
+                      : "✅"}
                   </button>
                 </div>
                 <div
                   className={tw`w-full ${
-                    data?.isAttended ? "flex-2" : "flex-1"
+                    data?.isAttended || data?.isAttended === null
+                      ? "flex-2"
+                      : "flex-1"
                   } transition-all ease-in-out transition-duration-200`}
                 >
                   <button
@@ -170,9 +197,15 @@ export default function Invitations({ id }: { id?: string }) {
                       ? "bg-red-700"
                       : "bg-gray-700 opacity-50")} transition-all ease-in-out transition-duration-200`}
                     onClick={() =>
-                      data?.isAttended ? dataHandler(true) : {}}
+                      data?.isAttended
+                        ? dataHandler(true)
+                        : data?.isAttended === null
+                        ? dataHandler(true, 0, true)
+                        : {}}
                   >
-                    {data?.isAttended ? "Mình kẹt rồi 😭" : "❌"}
+                    {data?.isAttended || data?.isAttended === null
+                      ? "Mình kẹt rồi 😭"
+                      : "❌"}
                   </button>
                 </div>
               </div>
