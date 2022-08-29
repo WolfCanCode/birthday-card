@@ -20,7 +20,7 @@ export default function App({ Component }: AppProps) {
         />
         <meta
           property="og:description"
-          content="Đây là thiệp sinh nhật điện tử, có giá trị để Ngọt biết bạn có đi hay không. Ngoài ra nó cũng là vé để bốc thăm trúng thưởng đó nha"
+          content="Đây là thiệp sinh nhật điện tử, có giá trị để bốc thăm trúng thưởng đó nha"
         />
         <meta
           property="og:image"
